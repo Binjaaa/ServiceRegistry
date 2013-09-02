@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[SRRUserRolesSet] (
+    [PK_ID] INT IDENTITY (1, 1) NOT NULL,
+    CONSTRAINT [PK_SRRUserRolesSet] PRIMARY KEY CLUSTERED ([PK_ID] ASC)
+);
+
