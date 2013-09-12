@@ -1,0 +1,74 @@
+﻿@model IEnumerable<SRR.DataAccessLayer.Model.SRRApplications>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PK_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Version)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FK_Developer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttachedObjects)
+        </th>
+        @*  <th>
+            @Html.DisplayNameFor(model => model.Keywords)
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PK_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @if (item.FK_Developer != default(int))
+                {
+                    @Html.DisplayFor(modelItem => item.SRRUsers.Name)   
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttachedObjects)
+            </td>
+            @* <td>
+            @Html.DisplayFor(modelItem => item.Keywords)
+        </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PK_ID }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

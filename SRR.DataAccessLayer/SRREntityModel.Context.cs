@@ -12,12 +12,11 @@ namespace SRR.DataAccessLayer
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using SRR.DataAccessLayer.Model;
     
-    public partial class SRREntities1 : DbContext
+    public partial class Entities : DbContext
     {
-        public SRREntities1()
-            : base("name=SRREntities1")
+        public Entities()
+            : base("name=Entities")
         {
         }
     
@@ -37,5 +36,7 @@ namespace SRR.DataAccessLayer
         public DbSet<SRRServices> SRRServices { get; set; }
         public DbSet<SRRUserRolesSet> SRRUserRolesSet { get; set; }
         public DbSet<SRRUsers> SRRUsers { get; set; }
+        public DbSet<Many1> Many1Set { get; set; }
+        public DbSet<Many2> Many2Set { get; set; }
     }
 }

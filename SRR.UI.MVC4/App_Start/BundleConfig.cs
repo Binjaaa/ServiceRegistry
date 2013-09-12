@@ -38,6 +38,11 @@ namespace SRR.UI.MVC4
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            //custom
+            bundles.Add(new StyleBundle("~/Content/ModalWindowEffects/css").Include(
+                "~/Content/ModalWindowEffects/component.css",
+                "~/Content/ModalWindowEffects/default.css"));
         }
     }
 }

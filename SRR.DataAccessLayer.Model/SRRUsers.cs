@@ -14,22 +14,9 @@ namespace SRR.DataAccessLayer.Model
     
     public partial class SRRUsers
     {
-        public SRRUsers()
-        {
-            this.SRRApplications = new HashSet<SRRApplications>();
-            this.SRREntityHistoryTable = new HashSet<SRREntityHistoryTable>();
-            this.SRRServices = new HashSet<SRRServices>();
-        }
-    
         public int PK_ID { get; set; }
-        public int SRREntityHistoryTableSRRUsers_SRRUsers_PK_ID { get; set; }
         public string Name { get; set; }
         public string LoginName { get; set; }
         public string Password { get; set; }
-    
-        public virtual ICollection<SRRApplications> SRRApplications { get; set; }
-        public virtual ICollection<SRREntityHistoryTable> SRREntityHistoryTable { get; set; }
-        public virtual SRREntityHistoryTable SRREntityHistoryTable1 { get; set; }
-        public virtual ICollection<SRRServices> SRRServices { get; set; }
     }
 }

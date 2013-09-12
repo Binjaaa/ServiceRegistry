@@ -11,7 +11,7 @@ namespace SRR.DataAccessLayer.Repositories
     /// <summary>
     /// 
     /// </summary>
-    public class SRREntityTypeRepository : Repository<SRREntityTypeSet>, ISRREntityTypeRepository
+    public class SRREntityTypeRepository : GenericRepository<SRREntityTypeSet>, ISRREntityTypeRepository
     {
         /// <summary>
         /// 

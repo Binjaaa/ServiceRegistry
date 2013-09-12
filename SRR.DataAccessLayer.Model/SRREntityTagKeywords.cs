@@ -14,20 +14,7 @@ namespace SRR.DataAccessLayer.Model
     
     public partial class SRREntityTagKeywords
     {
-        public SRREntityTagKeywords()
-        {
-            this.Application_Keyword_Switch = new HashSet<Application_Keyword_Switch>();
-            this.SRRServices = new HashSet<SRRServices>();
-            this.SRRServiceMessages = new HashSet<SRRServiceMessages>();
-            this.ServiceOperations = new HashSet<ServiceOperations>();
-        }
-    
         public int PK_ID { get; set; }
         public string Name { get; set; }
-    
-        public virtual ICollection<Application_Keyword_Switch> Application_Keyword_Switch { get; set; }
-        public virtual ICollection<SRRServices> SRRServices { get; set; }
-        public virtual ICollection<SRRServiceMessages> SRRServiceMessages { get; set; }
-        public virtual ICollection<ServiceOperations> ServiceOperations { get; set; }
     }
 }

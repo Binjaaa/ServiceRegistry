@@ -2,7 +2,7 @@
 <#@ include file="EF.Utility.CS.ttinclude"#><#@
  output extension=".cs"#><#
 
-const string inputFile = @"SRREntityContext.edmx";
+const string inputFile = @"SRREntityModel.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);
@@ -43,7 +43,6 @@ namespace <#=code.EscapeNamespace(codeNamespace)#>
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using SRR.DataAccessLayer.Model;
 <#
 if (container.FunctionImports.Any())
 {

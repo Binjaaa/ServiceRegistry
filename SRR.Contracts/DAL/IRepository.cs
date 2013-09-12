@@ -12,20 +12,23 @@ namespace SRR.Infrastructure.Contracts.DAL
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> : IDisposable where T : class
     {
         //Sync members
         void Add(T entity);
+
+        void Delete(long ID);
         void Delete(T entity);
+
         void Update(T entity);
         T GetById(long Id);
-        IEnumerable<T> All();
-        IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
+        IQueryable<T> All();
+        IQueryable<T> Find(Expression<Func<T, bool>> predicate);
 
-
+        void Save();
         //Async members
-        Task AddAsync(T entity, CancellationToken cancellationToken = default(CancellationToken));
-        Task<List<T>> GetAllAsync(CancellationToken cancellationToken = default(CancellationToken));
-        Task DeleteAsync(long id, CancellationToken cancellationToken = default(CancellationToken));
+        //Task AddAsync(T entity, CancellationToken cancellationToken = default(CancellationToken));
+        //Task<List<T>> GetAllAsync(CancellationToken cancellationToken = default(CancellationToken));
+        //Task DeleteAsync(long id, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -1,0 +1,80 @@
+﻿@model SRR.UI.MVC4.Models.Application.ApplicationEditViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>SRRApplications</legend>
+
+        @*<div class="editor-label">
+            @Html.LabelFor(model => model.Application.PK_ID)
+        </div>*@
+        <div class="editor-field">
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(model => model.Application.PK_ID)
+            @*@Html.ValidationMessageFor(model => model.Application.PK_ID)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Application.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Application.Name)
+            @Html.ValidationMessageFor(model => model.Application.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Application.Version)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Application.Version)
+            @Html.ValidationMessageFor(model => model.Application.Version)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Application.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Application.Description)
+            @Html.ValidationMessageFor(model => model.Application.Description)
+        </div>
+
+        <div class="editor-label">
+            @* @Html.LabelFor(model => model.Application.FK_Developer)*@
+            @Html.Label("Developer")
+            @Html.DropDownListFor(model => model.Application.FK_Developer, Model.Users)
+        </div>
+        @*<div class="editor-field">
+            @Html.EditorFor(model => model.Application.FK_Developer)
+            @Html.ValidationMessageFor(model => model.Application.FK_Developer)
+        </div>*@
+
+        <div class="editor-label" >
+            @Html.LabelFor(model => model.Application.AttachedObjects)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Application.AttachedObjects)
+            @Html.ValidationMessageFor(model => model.Application.AttachedObjects)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

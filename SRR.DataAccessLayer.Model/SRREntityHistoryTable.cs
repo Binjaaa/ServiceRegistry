@@ -14,17 +14,11 @@ namespace SRR.DataAccessLayer.Model
     
     public partial class SRREntityHistoryTable
     {
-        public SRREntityHistoryTable()
-        {
-            this.SRRUsers1 = new HashSet<SRRUsers>();
-        }
-    
         public int PK_ID { get; set; }
         public string ModDate { get; set; }
         public string ModReason { get; set; }
         public int FK_ModUser { get; set; }
     
         public virtual SRRUsers SRRUsers { get; set; }
-        public virtual ICollection<SRRUsers> SRRUsers1 { get; set; }
     }
 }

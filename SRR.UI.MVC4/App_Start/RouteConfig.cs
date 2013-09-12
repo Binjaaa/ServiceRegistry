@@ -18,6 +18,24 @@ namespace SRR.UI.MVC4
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+          //  routes.MapRoute(
+          //    name: "KeywordRoute",
+          //    url: "{Keyword}/{Create}/",
+          //    defaults: new { controller = "Keyword", action = "Create" }
+          //);
+
+          //  routes.MapRoute(
+          //      name: "Application",
+          //      url: "{Application}/{Edit}/{id}",
+          //      defaults: new { controller = "Application", action = "Edit", id = UrlParameter.Optional }
+          //  );
+
+          //  routes.MapRoute(
+          //      name: "Baby",
+          //      url: "{Baby}/{Create}",
+          //      defaults: new { controller = "Baby", action = "Create" }
+          //      );
         }
     }
 }

@@ -3,7 +3,7 @@
  output extension=".cs"#><#
 
 //const string inputFile = @"$edmxInputFile$";
-	const string inputFile = @"..\SRR.DataAccessLayer\SRREntityContext.edmx";
+	const string inputFile = @"..\SRR.DataAccessLayer\SRREntityModel.edmx";
 	
 
 var textTransform = DynamicTextTransformation.Create(this);

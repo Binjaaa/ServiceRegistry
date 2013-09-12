@@ -26,7 +26,6 @@ namespace SRR.DataAccessLayer.Model
         public string Description { get; set; }
         public int FK_Developer { get; set; }
         public string AttachedObjects { get; set; }
-        public string Keywords { get; set; }
     
         public virtual ICollection<Application_Keyword_Switch> Application_Keyword_Switch { get; set; }
         public virtual ICollection<SRRApplicationUsingServices> SRRApplicationUsingServices { get; set; }

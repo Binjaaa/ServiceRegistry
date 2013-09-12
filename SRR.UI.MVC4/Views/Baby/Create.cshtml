@@ -1,0 +1,45 @@
+﻿@model SRR.UI.MVC4.Models.MyModelBaby
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+ @*@Html.AntiForgeryToken()*@
+@using (Html.BeginForm()) {
+   
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>MyModelBaby</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Mother)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Mother)
+            @Html.ValidationMessageFor(model => model.Mother)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Father)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Father)
+            @Html.ValidationMessageFor(model => model.Father)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
