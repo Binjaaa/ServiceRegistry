@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eebb30a8a96a4d5e8678601f275a4d0c" Name="Diagram1">
+        <EntityTypeShape EntityType="SRRModel.Application_Keyword_Switch" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.ServiceOperations" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.SRRApplications" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.SRRApplicationUsingServices" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.SRREntityHistoryTable" Width="1.5" PointX="3.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.SRREntityTagKeywords" Width="2" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.SRREntityTypeSet" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.SRRServiceMessages" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.SRRServices" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.SRRUserRolesSet" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SRRModel.SRRUsers" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="SRRModel.FK_ApplicationKeywordSwitcher_ApplicationSet" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.FK_ApplicationKeywordSwitcher_KeywordSet" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.FK_ApplicationUsingServices_Applications" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.FK_SRRApplications_SRRUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.FK_ApplicationUsingServices_Services" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.FK_SRREntityHistoryTable_SRRUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.FK_SRRServices_SRRUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.Service_Keywords_Switch" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.ServiceMessageKeywordSwitch" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.ServiceOperation_Keyword_Switch" ManuallyRouted="false" />
+        <AssociationConnector Association="SRRModel.ServiceOperationUsingServiceOperation" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SRRModel.Many1" Width="1.5" PointX="10.375" PointY="3.125" />
+        <EntityTypeShape EntityType="SRRModel.Many2" Width="1.5" PointX="13.25" PointY="3.125" />
+        <AssociationConnector Association="SRRModel.Many1Many2" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
