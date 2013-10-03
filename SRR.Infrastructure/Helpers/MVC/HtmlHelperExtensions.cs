@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Text;
 using System.Web.Mvc;
 
-namespace SRR.UI.MVC4.App.Extensions
+namespace SRR.Infrastructure.Helpers.MVC
 {
     public static class HtmlHelperExtensions
     {

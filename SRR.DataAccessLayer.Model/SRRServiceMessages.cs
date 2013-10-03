@@ -16,7 +16,7 @@ namespace SRR.DataAccessLayer.Model
     {
         public SRRServiceMessages()
         {
-            this.SRREntityTagKeywords = new HashSet<SRREntityTagKeywords>();
+            this.Tags = new HashSet<SRREntityTagKeywords>();
         }
     
         public int PK_ID { get; set; }
@@ -24,10 +24,7 @@ namespace SRR.DataAccessLayer.Model
         public string Namespace { get; set; }
         public string Description { get; set; }
         public string Version { get; set; }
-        public string ModificationDate { get; set; }
-        public string ModificationReason { get; set; }
-        public string ModificationUser { get; set; }
     
-        public virtual ICollection<SRREntityTagKeywords> SRREntityTagKeywords { get; set; }
+        public virtual ICollection<SRREntityTagKeywords> Tags { get; set; }
     }
 }

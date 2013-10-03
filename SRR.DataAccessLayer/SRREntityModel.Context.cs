@@ -12,6 +12,7 @@ namespace SRR.DataAccessLayer
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using SRR.DataAccessLayer.Model;
     
     public partial class Entities : DbContext
     {
@@ -25,18 +26,13 @@ namespace SRR.DataAccessLayer
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Application_Keyword_Switch> Application_Keyword_Switch { get; set; }
-        public DbSet<ServiceOperations> ServiceOperations { get; set; }
         public DbSet<SRRApplications> SRRApplications { get; set; }
-        public DbSet<SRRApplicationUsingServices> SRRApplicationUsingServices { get; set; }
+        public DbSet<SRRApplicationUsingServices_Switch> SRRApplicationUsingServices_Switch { get; set; }
         public DbSet<SRREntityHistoryTable> SRREntityHistoryTable { get; set; }
         public DbSet<SRREntityTagKeywords> SRREntityTagKeywords { get; set; }
-        public DbSet<SRREntityTypeSet> SRREntityTypeSet { get; set; }
         public DbSet<SRRServiceMessages> SRRServiceMessages { get; set; }
+        public DbSet<SRRServiceOperations> SRRServiceOperations { get; set; }
         public DbSet<SRRServices> SRRServices { get; set; }
-        public DbSet<SRRUserRolesSet> SRRUserRolesSet { get; set; }
         public DbSet<SRRUsers> SRRUsers { get; set; }
-        public DbSet<Many1> Many1Set { get; set; }
-        public DbSet<Many2> Many2Set { get; set; }
     }
 }

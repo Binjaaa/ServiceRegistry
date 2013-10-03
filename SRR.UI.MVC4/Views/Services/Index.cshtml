@@ -1,0 +1,78 @@
+﻿@model SRR.UI.MVC4.ViewModels.Services.ServiceIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        @* <th>
+            @Html.DisplayNameFor(model => model.PK_ID)
+        </th>*@
+        <th>Name
+        </th>
+        <th>Namespace
+        </th>
+        <th>Version
+        </th>
+        <th>Owner
+        </th>
+        <th>EndpointDEV
+        </th>
+        <th>EndpointQA
+        </th>
+        <th>EndpointPROD
+        </th>
+        <th>MaxResponseTime
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.ItemsToList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Namespace)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                @if (item.SRRUsers != null)
+                { 
+                    @Html.DisplayFor(modelItem => item.SRRUsers.Name)
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndpointDEV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndpointQA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndpointPROD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxResponseTime)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PK_ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.PK_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.PK_ID })
+            </td>
+        </tr>
+    }
+
+</table>

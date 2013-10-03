@@ -16,8 +16,9 @@ namespace SRR.DataAccessLayer.Model
     {
         public SRRServices()
         {
-            this.SRRApplicationUsingServices = new HashSet<SRRApplicationUsingServices>();
-            this.SRREntityTagKeywords = new HashSet<SRREntityTagKeywords>();
+            this.SRRApplicationUsingServices_Switch = new HashSet<SRRApplicationUsingServices_Switch>();
+            this.Tags = new HashSet<SRREntityTagKeywords>();
+            this.Operations = new HashSet<SRRServiceOperations>();
         }
     
         public int PK_ID { get; set; }
@@ -31,8 +32,9 @@ namespace SRR.DataAccessLayer.Model
         public string EndpointPROD { get; set; }
         public string MaxResponseTime { get; set; }
     
-        public virtual ICollection<SRRApplicationUsingServices> SRRApplicationUsingServices { get; set; }
-        public virtual SRRUsers SRRUsers { get; set; }
-        public virtual ICollection<SRREntityTagKeywords> SRREntityTagKeywords { get; set; }
+        public virtual ICollection<SRRApplicationUsingServices_Switch> SRRApplicationUsingServices_Switch { get; set; }
+        public virtual SRRUsers Owner { get; set; }
+        public virtual ICollection<SRREntityTagKeywords> Tags { get; set; }
+        public virtual ICollection<SRRServiceOperations> Operations { get; set; }
     }
 }

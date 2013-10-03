@@ -14,9 +14,16 @@ namespace SRR.DataAccessLayer.Model
     
     public partial class SRRUsers
     {
+        public SRRUsers()
+        {
+            this.SRREntityHistoryTable = new HashSet<SRREntityHistoryTable>();
+        }
+    
         public int PK_ID { get; set; }
         public string Name { get; set; }
         public string LoginName { get; set; }
         public string Password { get; set; }
+    
+        public virtual ICollection<SRREntityHistoryTable> SRREntityHistoryTable { get; set; }
     }
 }

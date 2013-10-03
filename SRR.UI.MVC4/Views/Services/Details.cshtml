@@ -1,0 +1,86 @@
+﻿@model SRR.DataAccessLayer.Model.SRRServices
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>SRRServices</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PK_ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PK_ID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Namespace)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Namespace)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Version)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Version)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FK_Owner)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FK_Owner)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndpointDEV)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndpointDEV)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndpointQA)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndpointQA)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EndpointPROD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndpointPROD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MaxResponseTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MaxResponseTime)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

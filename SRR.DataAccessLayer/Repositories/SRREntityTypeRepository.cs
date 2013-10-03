@@ -1,25 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SRR.DataAccessLayer.Model;
-using SRR.Infrastructure.Contracts.DAL;
-
-namespace SRR.DataAccessLayer.Repositories
+﻿namespace SRR.DataAccessLayer.Repositories
 {
+    using SRR.Contracts.DAL.Repositories;
+    using SRR.DataAccessLayer.Model;
+    using SRR.Infrastructure.Contracts.DAL;
+
     /// <summary>
     /// 
     /// </summary>
-    public class SRREntityTypeRepository : GenericRepository<SRREntityTypeSet>, ISRREntityTypeRepository
+    public class SRREntityTypeRepository
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="context"></param>
-        public SRREntityTypeRepository(IDbContext context) : base(context)
+        public SRREntityTypeRepository(IDbContext context) 
         {
 
         }
+        //: base(context)
+         //: GenericRepository<SRREntityTypeSet>, IEntityTypeRepository
     }
 }

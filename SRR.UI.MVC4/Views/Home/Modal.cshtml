@@ -1,0 +1,21 @@
+﻿@model DialogViewModel
+
+@using (Ajax.BeginForm(new AjaxOptions { OnSuccess = "handleModalSubmit" }))
+{
+    <div>
+        @Html.LabelFor(x => x.Prop1)
+        @Html.EditorFor(x => x.Prop1)
+        @Html.ValidationMessageFor(x => x.Prop1)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Prop2)
+        @Html.EditorFor(x => x.Prop2)
+        @Html.ValidationMessageFor(x => x.Prop2)
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Prop3)
+        @Html.EditorFor(x => x.Prop3)
+        @Html.ValidationMessageFor(x => x.Prop3)
+    </div>
+    <button type="submit">OK</button>
+}

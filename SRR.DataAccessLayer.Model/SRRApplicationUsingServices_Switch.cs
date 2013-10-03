@@ -12,9 +12,15 @@ namespace SRR.DataAccessLayer.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class SRREntityTypeSet
+    public partial class SRRApplicationUsingServices_Switch
     {
-        public int PK_ID { get; set; }
-        public string Name { get; set; }
+        public int FK_ApplicationPK_ID { get; set; }
+        public int FK_ServicePK_ID { get; set; }
+        public string RequestTransformation { get; set; }
+        public string ResponseTransformation { get; set; }
+        public string FaultTransformation { get; set; }
+    
+        public virtual SRRApplications SRRApplications { get; set; }
+        public virtual SRRServices SRRServices { get; set; }
     }
 }

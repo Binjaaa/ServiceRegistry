@@ -5,23 +5,82 @@
     <title>@ViewBag.Title - My ASP.NET MVC Application</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="~/Content/ModalWindowEffects/css/default.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/ModalWindowEffects/css/component.css" />
-    <script src="~/Content/ModalWindowEffects/js/modernizr.custom.js"></script>
 
-    <script src="~/Content/ModalWindowEffects/js/classie.js"></script>
-    <script src="~/Content/ModalWindowEffects/js/modalEffects.js"></script>
+    @*<link href="~/Content/Bootstrap/bootstrap.css" rel="stylesheet" />*@
+    @*<link href="~/Content/Site.css" rel="stylesheet" />*@
+ @*   <link href="~/Content/Bootstrap/bootstrap-responsive.css" rel="stylesheet" />*@
+
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+   
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <script src="~/Scripts/knockout-2.2.0.js"></script>
+    @* <link href="~/Content/ModalWindowEffects/css/default.css" rel="stylesheet" />
+    <link href="~/Content/ModalWindowEffects/css/component.css" rel="stylesheet" />*@
+
+    @* <script src="~/Content/ModalWindowEffects/js/modalEffects.js"></script>
     <script>
-        // this is important for IEs
-        var polyfilter_scriptpath = '~/js/';
+        $.noConflict();
+        jQuery(document).ready(function ($) {
+            //you can now use $ as your jQuery object.
+
+            alert("ohh hi!");
+            $('.md-trigger').ModalEffects({
+                overlaySelector: '.md-overlay',
+                closeSelector: '.md-close',
+                classAddAfterOpen: 'md-show',
+                modalAttr: 'data-modal',
+                perspectiveClass: 'md-perspective',
+                perspectiveSetClass: 'md-setperspective',
+                afterOpen: function (button, modal) {
+
+                },
+                afterClose: function (button, modal) {
+
+                }
+            });
+            //$('.md-trigger').modalEffects();
+        });
     </script>
 
+    <script src="~/Content/ModalWindowEffects/js/modernizr.custom.js"></script>
+    <script src="~/Content/ModalWindowEffects/js/classie.js"></script>
+
+
+
+    <script>
+        // this is important for IEs
+        var polyfilter_scriptpath = "~/Content/ModalWindowEffects/js/";
+    </script>
 
     <script src="~/Content/ModalWindowEffects/js/cssParser.js"></script>
     <script src="~/Content/ModalWindowEffects/js/css-filters-polyfill.js"></script>
 
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                $('.md-trigger').modalEffects({
+                    overlaySelector: '.md-overlay',
+                    closeSelector: '.md-close',
+                    classAddAfterOpen: 'md-show',
+                    modalAttr: 'data-modal',
+                    perspectiveClass: 'md-perspective',
+                    perspectiveSetClass: 'md-setperspective',
+                    afterOpen: function (button, modal) {
+
+                    },
+                    afterClose: function (button, modal) {
+
+                    }
+                });
+            });
+        })(jQuery);
+    </script>*@
+
 </head>
 <body>
     <header>
@@ -38,38 +97,28 @@
                 </section>
                 <nav>
                     <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*    <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
-                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                        <li>@Html.ActionLink("ApplicationsHE!", "Index", "Application")</li>
-                        <li>@Html.ActionLink("Keywordsdsfgdfghcgfh", "Create", "Keyword")</li>
-                        <li>@Html.ActionLink("DoItBaby", "Index", "Baby")</li>
-                        <li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        <li>@Html.ActionLink("Applications", "Index", "Application")</li>
+                        <li>@Html.ActionLink("Services", "Index", "Services")</li>
+                        <li>@Html.ActionLink("Tags", "Create", "Keyword")</li>
+                        @*<li>@Html.ActionLink("DoItBaby", "Index", "Baby")</li>*@
+                       @* <li>
                             <button class="md-trigger" data-modal="modal-1">Fade in &amp; Scale</button>
-                        </li>
+                        </li>*@
+
+
+
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
-    <div id="body">
-        <!-- All modals added here for the demo. You would of course just have one, dynamically created -->
-        <div class="md-modal md-effect-1" id="modal-1">
-            <div class="md-content">
-                <h3>Modal Dialog</h3>
-                <div>
-                    <p>This is a modal window. You can do the following things with it:</p>
-                    <ul>
-                        <li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
-                        <li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
-                        <li><strong>Close:</strong> click on the button below to close the modal.</li>
-                    </ul>
-                    <button class="md-close">Close me!</button>
-                </div>
-            </div>
-        </div>
-        <div class="md-overlay"></div><!-- the overlay element -->
 
+    <!-- /container -->
+
+    <div id="body">
         @RenderSection("featured", required: false)
         <section class="content-wrapper main-content clear-fix">
             @RenderBody()
@@ -82,8 +131,23 @@
             </div>
         </div>
     </footer>
+    @*<div class="md-overlay"></div>*@
 
     @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jqueryui")
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+  @*   <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.8.24.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+    @*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>*@
+
+
+         @RenderSection("scripts", required: false)
+
+
 </body>
 </html>

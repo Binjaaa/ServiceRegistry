@@ -52,10 +52,16 @@
     <Compile Include="DAL\IQueryableUnitOfWork.cs" />
     <Compile Include="DAL\IRepository.cs" />
     <Compile Include="DAL\ISql.cs" />
-    <Compile Include="DAL\ISRREntityTypeRepository.cs" />
     <Compile Include="DAL\IUnitOfWork.cs" />
-    <Compile Include="DAL\Repositories\ISRREntityTagRepository.cs" />
+    <Compile Include="DAL\Repositories\IEntityTypeRepository.cs" />
+    <Compile Include="DAL\Repositories\IServiceMessageRepository.cs" />
+    <Compile Include="DAL\Repositories\IServiceOperationRepository.cs" />
+    <Compile Include="DAL\Repositories\IServicesRepository.cs" />
+    <Compile Include="DAL\Repositories\IEntityTagRepository.cs" />
     <Compile Include="DAL\Repositories\IUserRepository.cs" />
+    <Compile Include="Managers\IManager.cs" />
+    <Compile Include="Managers\ISRRApplicationManager.cs" />
+    <Compile Include="Managers\ISRRServiceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +72,10 @@
     <ProjectReference Include="..\SRR.DataAccessLayer.Model\SRR.DataAccessLayer.Model.csproj">
       <Project>{a3983e2e-1a14-45f2-ae55-22bf8b5d41f4}</Project>
       <Name>SRR.DataAccessLayer.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SRR.UI.MVC4.ViewModels\SRR.Web.ViewModels.csproj">
+      <Project>{03b629e4-8685-4b7e-b8df-729e827b125f}</Project>
+      <Name>SRR.Web.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

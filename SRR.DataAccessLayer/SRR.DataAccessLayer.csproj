@@ -58,11 +58,14 @@
   <ItemGroup>
     <Compile Include="Entities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\ApplicationRepository.cs" />
+    <Compile Include="Repositories\SRRApplicationRepository.cs" />
     <Compile Include="Repositories\SRREntityTagRepository.cs" />
     <Compile Include="Repositories\SRREntityTypeRepository.cs" />
     <Compile Include="GenericRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\SRRServiceMessageRepository.cs" />
+    <Compile Include="Repositories\SRRServiceOperationRepository.cs" />
+    <Compile Include="Repositories\SRRServiceRepository.cs" />
+    <Compile Include="Repositories\SRRUserRepository.cs" />
     <Compile Include="SRREntityModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

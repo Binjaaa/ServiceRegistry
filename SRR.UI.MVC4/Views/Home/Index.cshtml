@@ -1,4 +1,4 @@
-﻿@{
+﻿@*@{
     ViewBag.Title = "Home Page";
 }
 @section featured {
@@ -42,4 +42,65 @@
         and price for your applications.
         <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
     </li>
-</ol>
+</ol>*@
+
+@model SRR.UI.MVC4.Models.MyViewModel
+
+
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(x => x.SelectedValue)
+        @Html.DropDownListFor(x => x.SelectedValue, Model.Values, new { id = "ddl" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.SomeOtherProperty)
+        @Html.TextBoxFor(x => x.SomeOtherProperty, new { id = "otherProperty" })
+        @Html.ActionLink(
+            "click here to open a modal and help you fill the value",
+            "Modal",
+            "Home",
+            null,
+            new { id = "showModal" }
+        )
+    </div>
+    <button type="submit">OK</button>
+}
+
+<div id="modal"></div>
+
+<script>
+    
+    $(function () {
+        $('#showModal').click(function () {
+            $.ajax({
+                url: this.href,
+                type: 'GET',
+                cache: false,
+                data: { selectedValue: $('#ddl').val() },
+                success: function (result) {
+                    $('#modal').html(result).dialog('open');
+                }
+            });
+            return false;
+        });
+
+        $('#modal').dialog({
+            autoOpen: false,
+            modal: true
+        });
+    });
+
+    function handleModalSubmit(result) {
+        if (result.value) {
+            // JSON returned => validation succeeded => 
+            // close the modal and update some property on the main form
+            $('#modal').dialog('close');
+            $('#otherProperty').val(result.value);
+        } else {
+            // validation failed => refresh the modal to display the errors
+            $('#modal').html(result);
+        }
+    }
+</script>

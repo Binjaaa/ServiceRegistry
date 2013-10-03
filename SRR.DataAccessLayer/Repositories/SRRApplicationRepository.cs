@@ -7,13 +7,13 @@
     /// <summary>
     /// 
     /// </summary>
-    public class ApplicationRepository : GenericRepository<SRRApplications>, IApplicationRepository
+    public class SRRApplicationRepository : GenericRepository<SRRApplications>, IApplicationRepository
     {
         /// <summary>
         /// 
         /// </summary>
         /// <param name="context"></param>
-        public ApplicationRepository(IDbContext context)
+        public SRRApplicationRepository(IDbContext context)
             : base(context)
         {
 

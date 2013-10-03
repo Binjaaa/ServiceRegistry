@@ -4,58 +4,45 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SRRModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SRRModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="SRRModelStoreContainer">
           <EntitySet Name="Application_Keyword_Switch" EntityType="SRRModel.Store.Application_Keyword_Switch" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Service_Keywords_Switch" EntityType="SRRModel.Store.Service_Keywords_Switch" store:Type="Tables" store:Schema="dbo" store:Name="Service_Keywords_Switch">
-            <DefiningQuery>SELECT 
-      [Service_Keywords_Switch].[FK_ServicePK_ID] AS [FK_ServicePK_ID], 
-      [Service_Keywords_Switch].[FK_KeywordPK_ID] AS [FK_KeywordPK_ID]
-      FROM [dbo].[Service_Keywords_Switch] AS [Service_Keywords_Switch]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ServiceMessageKeywordSwitch" EntityType="SRRModel.Store.ServiceMessageKeywordSwitch" store:Type="Tables" store:Schema="dbo" store:Name="ServiceMessageKeywordSwitch">
-            <DefiningQuery>SELECT 
-      [ServiceMessageKeywordSwitch].[FK_ServiceMessagePK_ID] AS [FK_ServiceMessagePK_ID], 
-      [ServiceMessageKeywordSwitch].[FK_KeywordPK_ID] AS [FK_KeywordPK_ID]
-      FROM [dbo].[ServiceMessageKeywordSwitch] AS [ServiceMessageKeywordSwitch]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ServiceOperation_Keyword_Switch" EntityType="SRRModel.Store.ServiceOperation_Keyword_Switch" store:Type="Tables" store:Schema="dbo" store:Name="ServiceOperation_Keyword_Switch">
-            <DefiningQuery>SELECT 
-      [ServiceOperation_Keyword_Switch].[FK_ServiceOperationPK_ID] AS [FK_ServiceOperationPK_ID], 
-      [ServiceOperation_Keyword_Switch].[FK_KeywordPK_ID] AS [FK_KeywordPK_ID]
-      FROM [dbo].[ServiceOperation_Keyword_Switch] AS [ServiceOperation_Keyword_Switch]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ServiceOperations" EntityType="SRRModel.Store.ServiceOperations" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ServiceOperationUsingServiceOperation" EntityType="SRRModel.Store.ServiceOperationUsingServiceOperation" store:Type="Tables" store:Schema="dbo" store:Name="ServiceOperationUsingServiceOperation">
-            <DefiningQuery>SELECT 
-      [ServiceOperationUsingServiceOperation].[FK_CallerServiceOperationPK_ID] AS [FK_CallerServiceOperationPK_ID], 
-      [ServiceOperationUsingServiceOperation].[FK_CalledServiceOperationPK_ID] AS [FK_CalledServiceOperationPK_ID]
-      FROM [dbo].[ServiceOperationUsingServiceOperation] AS [ServiceOperationUsingServiceOperation]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Service_Keywords_Switch" EntityType="SRRModel.Store.Service_Keywords_Switch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Service_ServiceOperations_Switch" EntityType="SRRModel.Store.Service_ServiceOperations_Switch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServiceMessageKeywordSwitch" EntityType="SRRModel.Store.ServiceMessageKeywordSwitch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServiceOperation_Keyword_Switch" EntityType="SRRModel.Store.ServiceOperation_Keyword_Switch" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServiceOperation_ServiceOperation_Switch" EntityType="SRRModel.Store.ServiceOperation_ServiceOperation_Switch" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SRRApplications" EntityType="SRRModel.Store.SRRApplications" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SRRApplicationUsingServices" EntityType="SRRModel.Store.SRRApplicationUsingServices" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SRRApplicationUsingServices_Switch" EntityType="SRRModel.Store.SRRApplicationUsingServices_Switch" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SRREntityHistoryTable" EntityType="SRRModel.Store.SRREntityHistoryTable" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SRREntityTagKeywords" EntityType="SRRModel.Store.SRREntityTagKeywords" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SRREntityTypeSet" EntityType="SRRModel.Store.SRREntityTypeSet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SRRServiceMessages" EntityType="SRRModel.Store.SRRServiceMessages" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SRRServiceOperations" EntityType="SRRModel.Store.SRRServiceOperations" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SRRServices" EntityType="SRRModel.Store.SRRServices" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SRRUserRolesSet" EntityType="SRRModel.Store.SRRUserRolesSet" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SRRUsers" EntityType="SRRModel.Store.SRRUsers" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_ApplicationKeywordSwitcher_ApplicationSet" Association="SRRModel.Store.FK_ApplicationKeywordSwitcher_ApplicationSet">
+          <AssociationSet Name="FK_Application_Keyword_Switch_SRRApplications" Association="SRRModel.Store.FK_Application_Keyword_Switch_SRRApplications">
             <End Role="SRRApplications" EntitySet="SRRApplications" />
             <End Role="Application_Keyword_Switch" EntitySet="Application_Keyword_Switch" />
           </AssociationSet>
-          <AssociationSet Name="FK_ApplicationKeywordSwitcher_KeywordSet" Association="SRRModel.Store.FK_ApplicationKeywordSwitcher_KeywordSet">
+          <AssociationSet Name="FK_Application_Keyword_Switch_SRREntityTagKeywords" Association="SRRModel.Store.FK_Application_Keyword_Switch_SRREntityTagKeywords">
             <End Role="SRREntityTagKeywords" EntitySet="SRREntityTagKeywords" />
             <End Role="Application_Keyword_Switch" EntitySet="Application_Keyword_Switch" />
           </AssociationSet>
           <AssociationSet Name="FK_ApplicationUsingServices_Applications" Association="SRRModel.Store.FK_ApplicationUsingServices_Applications">
             <End Role="SRRApplications" EntitySet="SRRApplications" />
-            <End Role="SRRApplicationUsingServices" EntitySet="SRRApplicationUsingServices" />
+            <End Role="SRRApplicationUsingServices_Switch" EntitySet="SRRApplicationUsingServices_Switch" />
           </AssociationSet>
           <AssociationSet Name="FK_ApplicationUsingServices_Services" Association="SRRModel.Store.FK_ApplicationUsingServices_Services">
             <End Role="SRRServices" EntitySet="SRRServices" />
-            <End Role="SRRApplicationUsingServices" EntitySet="SRRApplicationUsingServices" />
+            <End Role="SRRApplicationUsingServices_Switch" EntitySet="SRRApplicationUsingServices_Switch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_ServiceOperations_Switch_SRRServiceOperations" Association="SRRModel.Store.FK_Service_ServiceOperations_Switch_SRRServiceOperations">
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
+            <End Role="Service_ServiceOperations_Switch" EntitySet="Service_ServiceOperations_Switch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Service_ServiceOperations_Switch_SRRServices" Association="SRRModel.Store.FK_Service_ServiceOperations_Switch_SRRServices">
+            <End Role="SRRServices" EntitySet="SRRServices" />
+            <End Role="Service_ServiceOperations_Switch" EntitySet="Service_ServiceOperations_Switch" />
           </AssociationSet>
           <AssociationSet Name="FK_ServiceKeywordSwitcher_Keywords" Association="SRRModel.Store.FK_ServiceKeywordSwitcher_Keywords">
             <End Role="SRREntityTagKeywords" EntitySet="SRREntityTagKeywords" />
@@ -78,18 +65,30 @@
             <End Role="ServiceOperation_Keyword_Switch" EntitySet="ServiceOperation_Keyword_Switch" />
           </AssociationSet>
           <AssociationSet Name="FK_ServiceOperationKeywordSwitcher_ServiceOperations" Association="SRRModel.Store.FK_ServiceOperationKeywordSwitcher_ServiceOperations">
-            <End Role="ServiceOperations" EntitySet="ServiceOperations" />
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
             <End Role="ServiceOperation_Keyword_Switch" EntitySet="ServiceOperation_Keyword_Switch" />
           </AssociationSet>
+          <AssociationSet Name="FK_ServiceOperations_RequestMessage" Association="SRRModel.Store.FK_ServiceOperations_RequestMessage">
+            <End Role="SRRServiceMessages" EntitySet="SRRServiceMessages" />
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOperations_ResponseMessage" Association="SRRModel.Store.FK_ServiceOperations_ResponseMessage">
+            <End Role="SRRServiceMessages" EntitySet="SRRServiceMessages" />
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
+          </AssociationSet>
           <AssociationSet Name="FK_ServiceOperationUsingServiceOperation_ServiceOperations" Association="SRRModel.Store.FK_ServiceOperationUsingServiceOperation_ServiceOperations">
-            <End Role="ServiceOperations" EntitySet="ServiceOperations" />
-            <End Role="ServiceOperationUsingServiceOperation" EntitySet="ServiceOperationUsingServiceOperation" />
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
+            <End Role="ServiceOperation_ServiceOperation_Switch" EntitySet="ServiceOperation_ServiceOperation_Switch" />
           </AssociationSet>
           <AssociationSet Name="FK_ServiceOperationUsingServiceOperation_ServiceOperations1" Association="SRRModel.Store.FK_ServiceOperationUsingServiceOperation_ServiceOperations1">
-            <End Role="ServiceOperations" EntitySet="ServiceOperations" />
-            <End Role="ServiceOperationUsingServiceOperation" EntitySet="ServiceOperationUsingServiceOperation" />
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
+            <End Role="ServiceOperation_ServiceOperation_Switch" EntitySet="ServiceOperation_ServiceOperation_Switch" />
           </AssociationSet>
           <AssociationSet Name="FK_SRRApplications_SRRUsers" Association="SRRModel.Store.FK_SRRApplications_SRRUsers">
+            <End Role="SRRUsers" EntitySet="SRRUsers" />
+            <End Role="SRRApplications" EntitySet="SRRApplications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SRRApplications_SRRUsers_Owner" Association="SRRModel.Store.FK_SRRApplications_SRRUsers_Owner">
             <End Role="SRRUsers" EntitySet="SRRUsers" />
             <End Role="SRRApplications" EntitySet="SRRApplications" />
           </AssociationSet>
@@ -104,15 +103,12 @@
         </EntityContainer>
         <EntityType Name="Application_Keyword_Switch">
           <Key>
-            <PropertyRef Name="PK_ID" />
+            <PropertyRef Name="FK_ApplicationPK_ID" />
+            <PropertyRef Name="FK_KeywordPK_ID" />
           </Key>
           <Property Name="FK_ApplicationPK_ID" Type="int" Nullable="false" />
           <Property Name="FK_KeywordPK_ID" Type="int" Nullable="false" />
-          <Property Name="PK_ID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'SRR.dbo.Service_Keywords_Switch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="Service_Keywords_Switch">
           <Key>
             <PropertyRef Name="FK_ServicePK_ID" />
@@ -121,9 +117,14 @@
           <Property Name="FK_ServicePK_ID" Type="int" Nullable="false" />
           <Property Name="FK_KeywordPK_ID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'SRR.dbo.ServiceMessageKeywordSwitch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
+        <EntityType Name="Service_ServiceOperations_Switch">
+          <Key>
+            <PropertyRef Name="FK_ServicePK_ID" />
+            <PropertyRef Name="FK_OperationPK_ID" />
+          </Key>
+          <Property Name="FK_ServicePK_ID" Type="int" Nullable="false" />
+          <Property Name="FK_OperationPK_ID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="ServiceMessageKeywordSwitch">
           <Key>
             <PropertyRef Name="FK_ServiceMessagePK_ID" />
@@ -132,9 +133,6 @@
           <Property Name="FK_ServiceMessagePK_ID" Type="int" Nullable="false" />
           <Property Name="FK_KeywordPK_ID" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'SRR.dbo.ServiceOperation_Keyword_Switch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
         <EntityType Name="ServiceOperation_Keyword_Switch">
           <Key>
             <PropertyRef Name="FK_ServiceOperationPK_ID" />
@@ -143,23 +141,7 @@
           <Property Name="FK_ServiceOperationPK_ID" Type="int" Nullable="false" />
           <Property Name="FK_KeywordPK_ID" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="ServiceOperations">
-          <Key>
-            <PropertyRef Name="PK_ID" />
-          </Key>
-          <Property Name="PK_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Namespace" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Keywords" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ModificationDate" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ModificationReason" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ModificationUser" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'SRR.dbo.ServiceOperationUsingServiceOperation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-        <EntityType Name="ServiceOperationUsingServiceOperation">
+        <EntityType Name="ServiceOperation_ServiceOperation_Switch">
           <Key>
             <PropertyRef Name="FK_CallerServiceOperationPK_ID" />
             <PropertyRef Name="FK_CalledServiceOperationPK_ID" />
@@ -177,8 +159,9 @@
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="FK_Developer" Type="int" Nullable="false" />
           <Property Name="AttachedObjects" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FK_Owner" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="SRRApplicationUsingServices">
+        <EntityType Name="SRRApplicationUsingServices_Switch">
           <Key>
             <PropertyRef Name="FK_ApplicationPK_ID" />
             <PropertyRef Name="FK_ServicePK_ID" />
@@ -202,15 +185,8 @@
           <Key>
             <PropertyRef Name="PK_ID" />
           </Key>
-          <Property Name="PK_ID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="SRREntityTypeSet">
-          <Key>
-            <PropertyRef Name="PK_ID" />
-          </Key>
           <Property Name="PK_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="SRRServiceMessages">
           <Key>
@@ -221,9 +197,17 @@
           <Property Name="Namespace" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Version" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ModificationDate" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ModificationReason" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ModificationUser" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SRRServiceOperations">
+          <Key>
+            <PropertyRef Name="PK_ID" />
+          </Key>
+          <Property Name="PK_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Namespace" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FK_RequestMessage" Type="int" />
+          <Property Name="FK_ResponseMessage" Type="int" />
         </EntityType>
         <EntityType Name="SRRServices">
           <Key>
@@ -240,12 +224,6 @@
           <Property Name="EndpointPROD" Type="nvarchar(max)" Nullable="false" />
           <Property Name="MaxResponseTime" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
-        <EntityType Name="SRRUserRolesSet">
-          <Key>
-            <PropertyRef Name="PK_ID" />
-          </Key>
-          <Property Name="PK_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-        </EntityType>
         <EntityType Name="SRRUsers">
           <Key>
             <PropertyRef Name="PK_ID" />
@@ -255,7 +233,7 @@
           <Property Name="LoginName" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
-        <Association Name="FK_ApplicationKeywordSwitcher_ApplicationSet">
+        <Association Name="FK_Application_Keyword_Switch_SRRApplications">
           <End Role="SRRApplications" Type="SRRModel.Store.SRRApplications" Multiplicity="1" />
           <End Role="Application_Keyword_Switch" Type="SRRModel.Store.Application_Keyword_Switch" Multiplicity="*" />
           <ReferentialConstraint>
@@ -267,7 +245,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ApplicationKeywordSwitcher_KeywordSet">
+        <Association Name="FK_Application_Keyword_Switch_SRREntityTagKeywords">
           <End Role="SRREntityTagKeywords" Type="SRRModel.Store.SRREntityTagKeywords" Multiplicity="1" />
           <End Role="Application_Keyword_Switch" Type="SRRModel.Store.Application_Keyword_Switch" Multiplicity="*" />
           <ReferentialConstraint>
@@ -281,24 +259,48 @@
         </Association>
         <Association Name="FK_ApplicationUsingServices_Applications">
           <End Role="SRRApplications" Type="SRRModel.Store.SRRApplications" Multiplicity="1" />
-          <End Role="SRRApplicationUsingServices" Type="SRRModel.Store.SRRApplicationUsingServices" Multiplicity="*" />
+          <End Role="SRRApplicationUsingServices_Switch" Type="SRRModel.Store.SRRApplicationUsingServices_Switch" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SRRApplications">
               <PropertyRef Name="PK_ID" />
             </Principal>
-            <Dependent Role="SRRApplicationUsingServices">
+            <Dependent Role="SRRApplicationUsingServices_Switch">
               <PropertyRef Name="FK_ApplicationPK_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ApplicationUsingServices_Services">
           <End Role="SRRServices" Type="SRRModel.Store.SRRServices" Multiplicity="1" />
-          <End Role="SRRApplicationUsingServices" Type="SRRModel.Store.SRRApplicationUsingServices" Multiplicity="*" />
+          <End Role="SRRApplicationUsingServices_Switch" Type="SRRModel.Store.SRRApplicationUsingServices_Switch" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SRRServices">
               <PropertyRef Name="PK_ID" />
             </Principal>
-            <Dependent Role="SRRApplicationUsingServices">
+            <Dependent Role="SRRApplicationUsingServices_Switch">
+              <PropertyRef Name="FK_ServicePK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_ServiceOperations_Switch_SRRServiceOperations">
+          <End Role="SRRServiceOperations" Type="SRRModel.Store.SRRServiceOperations" Multiplicity="1" />
+          <End Role="Service_ServiceOperations_Switch" Type="SRRModel.Store.Service_ServiceOperations_Switch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRRServiceOperations">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="Service_ServiceOperations_Switch">
+              <PropertyRef Name="FK_OperationPK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Service_ServiceOperations_Switch_SRRServices">
+          <End Role="SRRServices" Type="SRRModel.Store.SRRServices" Multiplicity="1" />
+          <End Role="Service_ServiceOperations_Switch" Type="SRRModel.Store.Service_ServiceOperations_Switch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRRServices">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="Service_ServiceOperations_Switch">
               <PropertyRef Name="FK_ServicePK_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -364,10 +366,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ServiceOperationKeywordSwitcher_ServiceOperations">
-          <End Role="ServiceOperations" Type="SRRModel.Store.ServiceOperations" Multiplicity="1" />
+          <End Role="SRRServiceOperations" Type="SRRModel.Store.SRRServiceOperations" Multiplicity="1" />
           <End Role="ServiceOperation_Keyword_Switch" Type="SRRModel.Store.ServiceOperation_Keyword_Switch" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ServiceOperations">
+            <Principal Role="SRRServiceOperations">
               <PropertyRef Name="PK_ID" />
             </Principal>
             <Dependent Role="ServiceOperation_Keyword_Switch">
@@ -375,26 +377,50 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ServiceOperationUsingServiceOperation_ServiceOperations">
-          <End Role="ServiceOperations" Type="SRRModel.Store.ServiceOperations" Multiplicity="1" />
-          <End Role="ServiceOperationUsingServiceOperation" Type="SRRModel.Store.ServiceOperationUsingServiceOperation" Multiplicity="*" />
+        <Association Name="FK_ServiceOperations_RequestMessage">
+          <End Role="SRRServiceMessages" Type="SRRModel.Store.SRRServiceMessages" Multiplicity="0..1" />
+          <End Role="SRRServiceOperations" Type="SRRModel.Store.SRRServiceOperations" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ServiceOperations">
+            <Principal Role="SRRServiceMessages">
               <PropertyRef Name="PK_ID" />
             </Principal>
-            <Dependent Role="ServiceOperationUsingServiceOperation">
+            <Dependent Role="SRRServiceOperations">
+              <PropertyRef Name="FK_RequestMessage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOperations_ResponseMessage">
+          <End Role="SRRServiceMessages" Type="SRRModel.Store.SRRServiceMessages" Multiplicity="0..1" />
+          <End Role="SRRServiceOperations" Type="SRRModel.Store.SRRServiceOperations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRRServiceMessages">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="SRRServiceOperations">
+              <PropertyRef Name="FK_ResponseMessage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOperationUsingServiceOperation_ServiceOperations">
+          <End Role="SRRServiceOperations" Type="SRRModel.Store.SRRServiceOperations" Multiplicity="1" />
+          <End Role="ServiceOperation_ServiceOperation_Switch" Type="SRRModel.Store.ServiceOperation_ServiceOperation_Switch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRRServiceOperations">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="ServiceOperation_ServiceOperation_Switch">
               <PropertyRef Name="FK_CalledServiceOperationPK_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ServiceOperationUsingServiceOperation_ServiceOperations1">
-          <End Role="ServiceOperations" Type="SRRModel.Store.ServiceOperations" Multiplicity="1" />
-          <End Role="ServiceOperationUsingServiceOperation" Type="SRRModel.Store.ServiceOperationUsingServiceOperation" Multiplicity="*" />
+          <End Role="SRRServiceOperations" Type="SRRModel.Store.SRRServiceOperations" Multiplicity="1" />
+          <End Role="ServiceOperation_ServiceOperation_Switch" Type="SRRModel.Store.ServiceOperation_ServiceOperation_Switch" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ServiceOperations">
+            <Principal Role="SRRServiceOperations">
               <PropertyRef Name="PK_ID" />
             </Principal>
-            <Dependent Role="ServiceOperationUsingServiceOperation">
+            <Dependent Role="ServiceOperation_ServiceOperation_Switch">
               <PropertyRef Name="FK_CallerServiceOperationPK_ID" />
             </Dependent>
           </ReferentialConstraint>
@@ -408,6 +434,18 @@
             </Principal>
             <Dependent Role="SRRApplications">
               <PropertyRef Name="FK_Developer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SRRApplications_SRRUsers_Owner">
+          <End Role="SRRUsers" Type="SRRModel.Store.SRRUsers" Multiplicity="1" />
+          <End Role="SRRApplications" Type="SRRModel.Store.SRRApplications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRRUsers">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="SRRApplications">
+              <PropertyRef Name="FK_Owner" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -435,53 +473,61 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SRRModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Application_Keyword_Switch" EntityType="SRRModel.Application_Keyword_Switch" />
-          <EntitySet Name="ServiceOperations" EntityType="SRRModel.ServiceOperations" />
           <EntitySet Name="SRRApplications" EntityType="SRRModel.SRRApplications" />
-          <EntitySet Name="SRRApplicationUsingServices" EntityType="SRRModel.SRRApplicationUsingServices" />
+          <EntitySet Name="SRRApplicationUsingServices_Switch" EntityType="SRRModel.SRRApplicationUsingServices_Switch" />
           <EntitySet Name="SRREntityHistoryTable" EntityType="SRRModel.SRREntityHistoryTable" />
           <EntitySet Name="SRREntityTagKeywords" EntityType="SRRModel.SRREntityTagKeywords" />
-          <EntitySet Name="SRREntityTypeSet" EntityType="SRRModel.SRREntityTypeSet" />
           <EntitySet Name="SRRServiceMessages" EntityType="SRRModel.SRRServiceMessages" />
+          <EntitySet Name="SRRServiceOperations" EntityType="SRRModel.SRRServiceOperations" />
           <EntitySet Name="SRRServices" EntityType="SRRModel.SRRServices" />
-          <EntitySet Name="SRRUserRolesSet" EntityType="SRRModel.SRRUserRolesSet" />
           <EntitySet Name="SRRUsers" EntityType="SRRModel.SRRUsers" />
-          <AssociationSet Name="FK_ApplicationKeywordSwitcher_ApplicationSet" Association="SRRModel.FK_ApplicationKeywordSwitcher_ApplicationSet">
-            <End Role="SRRApplications" EntitySet="SRRApplications" />
-            <End Role="Application_Keyword_Switch" EntitySet="Application_Keyword_Switch" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ApplicationKeywordSwitcher_KeywordSet" Association="SRRModel.FK_ApplicationKeywordSwitcher_KeywordSet">
-            <End Role="SRREntityTagKeywords" EntitySet="SRREntityTagKeywords" />
-            <End Role="Application_Keyword_Switch" EntitySet="Application_Keyword_Switch" />
-          </AssociationSet>
           <AssociationSet Name="FK_ApplicationUsingServices_Applications" Association="SRRModel.FK_ApplicationUsingServices_Applications">
             <End Role="SRRApplications" EntitySet="SRRApplications" />
-            <End Role="SRRApplicationUsingServices" EntitySet="SRRApplicationUsingServices" />
+            <End Role="SRRApplicationUsingServices_Switch" EntitySet="SRRApplicationUsingServices_Switch" />
           </AssociationSet>
           <AssociationSet Name="FK_SRRApplications_SRRUsers" Association="SRRModel.FK_SRRApplications_SRRUsers">
             <End Role="SRRUsers" EntitySet="SRRUsers" />
             <End Role="SRRApplications" EntitySet="SRRApplications" />
           </AssociationSet>
+          <AssociationSet Name="FK_SRRApplications_SRRUsers_Owner" Association="SRRModel.FK_SRRApplications_SRRUsers_Owner">
+            <End Role="SRRUsers" EntitySet="SRRUsers" />
+            <End Role="SRRApplications" EntitySet="SRRApplications" />
+          </AssociationSet>
           <AssociationSet Name="FK_ApplicationUsingServices_Services" Association="SRRModel.FK_ApplicationUsingServices_Services">
             <End Role="SRRServices" EntitySet="SRRServices" />
-            <End Role="SRRApplicationUsingServices" EntitySet="SRRApplicationUsingServices" />
+            <End Role="SRRApplicationUsingServices_Switch" EntitySet="SRRApplicationUsingServices_Switch" />
           </AssociationSet>
           <AssociationSet Name="FK_SRREntityHistoryTable_SRRUsers" Association="SRRModel.FK_SRREntityHistoryTable_SRRUsers">
             <End Role="SRRUsers" EntitySet="SRRUsers" />
             <End Role="SRREntityHistoryTable" EntitySet="SRREntityHistoryTable" />
           </AssociationSet>
+          <AssociationSet Name="FK_ServiceOperations_RequestMessage" Association="SRRModel.FK_ServiceOperations_RequestMessage">
+            <End Role="SRRServiceMessages" EntitySet="SRRServiceMessages" />
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceOperations_ResponseMessage" Association="SRRModel.FK_ServiceOperations_ResponseMessage">
+            <End Role="SRRServiceMessages" EntitySet="SRRServiceMessages" />
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
+          </AssociationSet>
           <AssociationSet Name="FK_SRRServices_SRRUsers" Association="SRRModel.FK_SRRServices_SRRUsers">
             <End Role="SRRUsers" EntitySet="SRRUsers" />
             <End Role="SRRServices" EntitySet="SRRServices" />
           </AssociationSet>
+          <AssociationSet Name="Application_Keyword_Switch" Association="SRRModel.Application_Keyword_Switch">
+            <End Role="SRRApplications" EntitySet="SRRApplications" />
+            <End Role="SRREntityTagKeywords" EntitySet="SRREntityTagKeywords" />
+          </AssociationSet>
           <AssociationSet Name="Service_Keywords_Switch" Association="SRRModel.Service_Keywords_Switch">
             <End Role="SRREntityTagKeywords" EntitySet="SRREntityTagKeywords" />
+            <End Role="SRRServices" EntitySet="SRRServices" />
+          </AssociationSet>
+          <AssociationSet Name="Service_ServiceOperations_Switch" Association="SRRModel.Service_ServiceOperations_Switch">
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
             <End Role="SRRServices" EntitySet="SRRServices" />
           </AssociationSet>
           <AssociationSet Name="ServiceMessageKeywordSwitch" Association="SRRModel.ServiceMessageKeywordSwitch">
@@ -490,182 +536,129 @@
           </AssociationSet>
           <AssociationSet Name="ServiceOperation_Keyword_Switch" Association="SRRModel.ServiceOperation_Keyword_Switch">
             <End Role="SRREntityTagKeywords" EntitySet="SRREntityTagKeywords" />
-            <End Role="ServiceOperations" EntitySet="ServiceOperations" />
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
           </AssociationSet>
-          <AssociationSet Name="ServiceOperationUsingServiceOperation" Association="SRRModel.ServiceOperationUsingServiceOperation">
-            <End Role="ServiceOperations" EntitySet="ServiceOperations" />
-            <End Role="ServiceOperations1" EntitySet="ServiceOperations" />
-          </AssociationSet>
-          <EntitySet Name="Many1Set" EntityType="SRRModel.Many1" />
-          <EntitySet Name="Many2Set" EntityType="SRRModel.Many2" />
-          <AssociationSet Name="Many1Many2" Association="SRRModel.Many1Many2">
-            <End Role="Many1" EntitySet="Many1Set" />
-            <End Role="Many2" EntitySet="Many2Set" />
+          <AssociationSet Name="ServiceOperation_ServiceOperation_Switch" Association="SRRModel.ServiceOperation_ServiceOperation_Switch">
+            <End Role="SRRServiceOperations" EntitySet="SRRServiceOperations" />
+            <End Role="SRRServiceOperations1" EntitySet="SRRServiceOperations" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Application_Keyword_Switch">
-          <Key>
-            <PropertyRef Name="PK_ID" />
-          </Key>
-          <Property Name="FK_ApplicationPK_ID" Type="Int32" Nullable="false" />
-          <Property Name="FK_KeywordPK_ID" Type="Int32" Nullable="false" />
-          <Property Name="PK_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SRRApplications" Relationship="SRRModel.FK_ApplicationKeywordSwitcher_ApplicationSet" FromRole="Application_Keyword_Switch" ToRole="SRRApplications" />
-          <NavigationProperty Name="SRREntityTagKeywords" Relationship="SRRModel.FK_ApplicationKeywordSwitcher_KeywordSet" FromRole="Application_Keyword_Switch" ToRole="SRREntityTagKeywords" />
-        </EntityType>
-        <EntityType Name="ServiceOperations">
-          <Key>
-            <PropertyRef Name="PK_ID" />
-          </Key>
-          <Property Name="PK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Namespace" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Keywords" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="ModificationDate" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="ModificationReason" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="ModificationUser" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="SRREntityTagKeywords" Relationship="SRRModel.ServiceOperation_Keyword_Switch" FromRole="ServiceOperations" ToRole="SRREntityTagKeywords" />
-          <NavigationProperty Name="ServiceOperations1" Relationship="SRRModel.ServiceOperationUsingServiceOperation" FromRole="ServiceOperations" ToRole="ServiceOperations1" />
-          <NavigationProperty Name="ServiceOperations2" Relationship="SRRModel.ServiceOperationUsingServiceOperation" FromRole="ServiceOperations1" ToRole="ServiceOperations" />
-        </EntityType>
         <EntityType Name="SRRApplications">
           <Key>
             <PropertyRef Name="PK_ID" />
           </Key>
-          <Property Name="PK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="FK_Developer" Type="Int32" Nullable="false" />
-          <Property Name="AttachedObjects" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="Application_Keyword_Switch" Relationship="SRRModel.FK_ApplicationKeywordSwitcher_ApplicationSet" FromRole="SRRApplications" ToRole="Application_Keyword_Switch" />
-          <NavigationProperty Name="SRRApplicationUsingServices" Relationship="SRRModel.FK_ApplicationUsingServices_Applications" FromRole="SRRApplications" ToRole="SRRApplicationUsingServices" />
-          <NavigationProperty Name="SRRUsers" Relationship="SRRModel.FK_SRRApplications_SRRUsers" FromRole="SRRApplications" ToRole="SRRUsers" />
+          <Property Type="Int32" Name="PK_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Version" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FK_Developer" Nullable="false" />
+          <Property Type="String" Name="AttachedObjects" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FK_Owner" Nullable="false" />
+          <NavigationProperty Name="SRRApplicationUsingServices_Switch" Relationship="SRRModel.FK_ApplicationUsingServices_Applications" FromRole="SRRApplications" ToRole="SRRApplicationUsingServices_Switch" />
+          <NavigationProperty Name="Developer" Relationship="SRRModel.FK_SRRApplications_SRRUsers" FromRole="SRRApplications" ToRole="SRRUsers" />
+          <NavigationProperty Name="Owner" Relationship="SRRModel.FK_SRRApplications_SRRUsers_Owner" FromRole="SRRApplications" ToRole="SRRUsers" />
+          <NavigationProperty Name="Tags" Relationship="SRRModel.Application_Keyword_Switch" FromRole="SRRApplications" ToRole="SRREntityTagKeywords" />
         </EntityType>
-        <EntityType Name="SRRApplicationUsingServices">
+        <EntityType Name="SRRApplicationUsingServices_Switch">
           <Key>
             <PropertyRef Name="FK_ApplicationPK_ID" />
             <PropertyRef Name="FK_ServicePK_ID" />
           </Key>
-          <Property Name="FK_ApplicationPK_ID" Type="Int32" Nullable="false" />
-          <Property Name="FK_ServicePK_ID" Type="Int32" Nullable="false" />
-          <Property Name="RequestTransformation" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
-          <Property Name="ResponseTransformation" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
-          <Property Name="FaultTransformation" Type="String" MaxLength="100" Unicode="true" FixedLength="true" />
-          <NavigationProperty Name="SRRApplications" Relationship="SRRModel.FK_ApplicationUsingServices_Applications" FromRole="SRRApplicationUsingServices" ToRole="SRRApplications" />
-          <NavigationProperty Name="SRRServices" Relationship="SRRModel.FK_ApplicationUsingServices_Services" FromRole="SRRApplicationUsingServices" ToRole="SRRServices" />
+          <Property Type="Int32" Name="FK_ApplicationPK_ID" Nullable="false" />
+          <Property Type="Int32" Name="FK_ServicePK_ID" Nullable="false" />
+          <Property Type="String" Name="RequestTransformation" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="ResponseTransformation" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="FaultTransformation" MaxLength="100" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="SRRApplications" Relationship="SRRModel.FK_ApplicationUsingServices_Applications" FromRole="SRRApplicationUsingServices_Switch" ToRole="SRRApplications" />
+          <NavigationProperty Name="SRRServices" Relationship="SRRModel.FK_ApplicationUsingServices_Services" FromRole="SRRApplicationUsingServices_Switch" ToRole="SRRServices" />
         </EntityType>
         <EntityType Name="SRREntityHistoryTable">
           <Key>
             <PropertyRef Name="PK_ID" />
           </Key>
-          <Property Name="PK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ModDate" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="ModReason" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="FK_ModUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="SRRUsers" Relationship="SRRModel.FK_SRREntityHistoryTable_SRRUsers" FromRole="SRREntityHistoryTable" ToRole="SRRUsers" />
+          <Property Type="Int32" Name="PK_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ModDate" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ModReason" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FK_ModUser" Nullable="false" />
         </EntityType>
         <EntityType Name="SRREntityTagKeywords">
           <Key>
             <PropertyRef Name="PK_ID" />
           </Key>
-          <Property Name="PK_ID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="SRREntityTypeSet">
-          <Key>
-            <PropertyRef Name="PK_ID" />
-          </Key>
-          <Property Name="PK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="PK_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="SRRServiceMessages">
           <Key>
             <PropertyRef Name="PK_ID" />
           </Key>
-          <Property Name="PK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Namespace" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="ModificationDate" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="ModificationReason" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="ModificationUser" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="SRREntityTagKeywords" Relationship="SRRModel.ServiceMessageKeywordSwitch" FromRole="SRRServiceMessages" ToRole="SRREntityTagKeywords" />
+          <Property Type="Int32" Name="PK_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Namespace" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Version" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tags" Relationship="SRRModel.ServiceMessageKeywordSwitch" FromRole="SRRServiceMessages" ToRole="SRREntityTagKeywords" />
+        </EntityType>
+        <EntityType Name="SRRServiceOperations">
+          <Key>
+            <PropertyRef Name="PK_ID" />
+          </Key>
+          <Property Type="Int32" Name="PK_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Namespace" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FK_RequestMessage" />
+          <Property Type="Int32" Name="FK_ResponseMessage" />
+          <NavigationProperty Name="RequestMessage" Relationship="SRRModel.FK_ServiceOperations_RequestMessage" FromRole="SRRServiceOperations" ToRole="SRRServiceMessages" />
+          <NavigationProperty Name="ResponseMessage" Relationship="SRRModel.FK_ServiceOperations_ResponseMessage" FromRole="SRRServiceOperations" ToRole="SRRServiceMessages" />
+          <NavigationProperty Name="Tags" Relationship="SRRModel.ServiceOperation_Keyword_Switch" FromRole="SRRServiceOperations" ToRole="SRREntityTagKeywords" />
+          <NavigationProperty Name="SRRServiceOperations1" Relationship="SRRModel.ServiceOperation_ServiceOperation_Switch" FromRole="SRRServiceOperations" ToRole="SRRServiceOperations1" />
+          <NavigationProperty Name="SRRServiceOperations2" Relationship="SRRModel.ServiceOperation_ServiceOperation_Switch" FromRole="SRRServiceOperations1" ToRole="SRRServiceOperations" />
         </EntityType>
         <EntityType Name="SRRServices">
           <Key>
             <PropertyRef Name="PK_ID" />
           </Key>
-          <Property Name="PK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Namespace" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="Version" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="FK_Owner" Type="Int32" Nullable="false" />
-          <Property Name="EndpointDEV" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="EndpointQA" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="EndpointPROD" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <Property Name="MaxResponseTime" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="SRRApplicationUsingServices" Relationship="SRRModel.FK_ApplicationUsingServices_Services" FromRole="SRRServices" ToRole="SRRApplicationUsingServices" />
-          <NavigationProperty Name="SRRUsers" Relationship="SRRModel.FK_SRRServices_SRRUsers" FromRole="SRRServices" ToRole="SRRUsers" />
-          <NavigationProperty Name="SRREntityTagKeywords" Relationship="SRRModel.Service_Keywords_Switch" FromRole="SRRServices" ToRole="SRREntityTagKeywords" />
-        </EntityType>
-        <EntityType Name="SRRUserRolesSet">
-          <Key>
-            <PropertyRef Name="PK_ID" />
-          </Key>
-          <Property Name="PK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PK_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Namespace" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Version" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="FK_Owner" Nullable="false" />
+          <Property Type="String" Name="EndpointDEV" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EndpointQA" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EndpointPROD" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MaxResponseTime" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SRRApplicationUsingServices_Switch" Relationship="SRRModel.FK_ApplicationUsingServices_Services" FromRole="SRRServices" ToRole="SRRApplicationUsingServices_Switch" />
+          <NavigationProperty Name="Owner" Relationship="SRRModel.FK_SRRServices_SRRUsers" FromRole="SRRServices" ToRole="SRRUsers" />
+          <NavigationProperty Name="Tags" Relationship="SRRModel.Service_Keywords_Switch" FromRole="SRRServices" ToRole="SRREntityTagKeywords" />
+          <NavigationProperty Name="Operations" Relationship="SRRModel.Service_ServiceOperations_Switch" FromRole="SRRServices" ToRole="SRRServiceOperations" />
         </EntityType>
         <EntityType Name="SRRUsers">
           <Key>
             <PropertyRef Name="PK_ID" />
           </Key>
-          <Property Name="PK_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="LoginName" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="PK_ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoginName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SRREntityHistoryTable" Relationship="SRRModel.FK_SRREntityHistoryTable_SRRUsers" FromRole="SRRUsers" ToRole="SRREntityHistoryTable" />
         </EntityType>
-        <Association Name="FK_ApplicationKeywordSwitcher_ApplicationSet">
-          <End Role="SRRApplications" Type="SRRModel.SRRApplications" Multiplicity="1" />
-          <End Role="Application_Keyword_Switch" Type="SRRModel.Application_Keyword_Switch" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SRRApplications">
-              <PropertyRef Name="PK_ID" />
-            </Principal>
-            <Dependent Role="Application_Keyword_Switch">
-              <PropertyRef Name="FK_ApplicationPK_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ApplicationKeywordSwitcher_KeywordSet">
-          <End Role="SRREntityTagKeywords" Type="SRRModel.SRREntityTagKeywords" Multiplicity="1" />
-          <End Role="Application_Keyword_Switch" Type="SRRModel.Application_Keyword_Switch" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SRREntityTagKeywords">
-              <PropertyRef Name="PK_ID" />
-            </Principal>
-            <Dependent Role="Application_Keyword_Switch">
-              <PropertyRef Name="FK_KeywordPK_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ApplicationUsingServices_Applications">
-          <End Role="SRRApplications" Type="SRRModel.SRRApplications" Multiplicity="1" />
-          <End Role="SRRApplicationUsingServices" Type="SRRModel.SRRApplicationUsingServices" Multiplicity="*" />
+          <End Type="SRRModel.SRRApplications" Role="SRRApplications" Multiplicity="1" />
+          <End Type="SRRModel.SRRApplicationUsingServices_Switch" Role="SRRApplicationUsingServices_Switch" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SRRApplications">
               <PropertyRef Name="PK_ID" />
             </Principal>
-            <Dependent Role="SRRApplicationUsingServices">
+            <Dependent Role="SRRApplicationUsingServices_Switch">
               <PropertyRef Name="FK_ApplicationPK_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SRRApplications_SRRUsers">
-          <End Role="SRRUsers" Type="SRRModel.SRRUsers" Multiplicity="1" />
-          <End Role="SRRApplications" Type="SRRModel.SRRApplications" Multiplicity="*" />
+          <End Type="SRRModel.SRRUsers" Role="SRRUsers" Multiplicity="1" />
+          <End Type="SRRModel.SRRApplications" Role="SRRApplications" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SRRUsers">
               <PropertyRef Name="PK_ID" />
@@ -675,21 +668,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_SRRApplications_SRRUsers_Owner">
+          <End Type="SRRModel.SRRUsers" Role="SRRUsers" Multiplicity="1" />
+          <End Type="SRRModel.SRRApplications" Role="SRRApplications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRRUsers">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="SRRApplications">
+              <PropertyRef Name="FK_Owner" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ApplicationUsingServices_Services">
-          <End Role="SRRServices" Type="SRRModel.SRRServices" Multiplicity="1" />
-          <End Role="SRRApplicationUsingServices" Type="SRRModel.SRRApplicationUsingServices" Multiplicity="*" />
+          <End Type="SRRModel.SRRServices" Role="SRRServices" Multiplicity="1" />
+          <End Type="SRRModel.SRRApplicationUsingServices_Switch" Role="SRRApplicationUsingServices_Switch" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SRRServices">
               <PropertyRef Name="PK_ID" />
             </Principal>
-            <Dependent Role="SRRApplicationUsingServices">
+            <Dependent Role="SRRApplicationUsingServices_Switch">
               <PropertyRef Name="FK_ServicePK_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_SRREntityHistoryTable_SRRUsers">
-          <End Role="SRRUsers" Type="SRRModel.SRRUsers" Multiplicity="1" />
-          <End Role="SRREntityHistoryTable" Type="SRRModel.SRREntityHistoryTable" Multiplicity="*" />
+          <End Type="SRRModel.SRRUsers" Role="SRRUsers" Multiplicity="1" />
+          <End Type="SRRModel.SRREntityHistoryTable" Role="SRREntityHistoryTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SRRUsers">
               <PropertyRef Name="PK_ID" />
@@ -699,9 +704,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ServiceOperations_RequestMessage">
+          <End Type="SRRModel.SRRServiceMessages" Role="SRRServiceMessages" Multiplicity="0..1" />
+          <End Type="SRRModel.SRRServiceOperations" Role="SRRServiceOperations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRRServiceMessages">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="SRRServiceOperations">
+              <PropertyRef Name="FK_RequestMessage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceOperations_ResponseMessage">
+          <End Type="SRRModel.SRRServiceMessages" Role="SRRServiceMessages" Multiplicity="0..1" />
+          <End Type="SRRModel.SRRServiceOperations" Role="SRRServiceOperations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SRRServiceMessages">
+              <PropertyRef Name="PK_ID" />
+            </Principal>
+            <Dependent Role="SRRServiceOperations">
+              <PropertyRef Name="FK_ResponseMessage" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_SRRServices_SRRUsers">
-          <End Role="SRRUsers" Type="SRRModel.SRRUsers" Multiplicity="1" />
-          <End Role="SRRServices" Type="SRRModel.SRRServices" Multiplicity="*" />
+          <End Type="SRRModel.SRRUsers" Role="SRRUsers" Multiplicity="1" />
+          <End Type="SRRModel.SRRServices" Role="SRRServices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SRRUsers">
               <PropertyRef Name="PK_ID" />
@@ -711,152 +740,113 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="Application_Keyword_Switch">
+          <End Type="SRRModel.SRRApplications" Role="SRRApplications" Multiplicity="*" />
+          <End Type="SRRModel.SRREntityTagKeywords" Role="SRREntityTagKeywords" Multiplicity="*" />
+        </Association>
         <Association Name="Service_Keywords_Switch">
-          <End Role="SRREntityTagKeywords" Type="SRRModel.SRREntityTagKeywords" Multiplicity="*" />
-          <End Role="SRRServices" Type="SRRModel.SRRServices" Multiplicity="*" />
+          <End Type="SRRModel.SRREntityTagKeywords" Role="SRREntityTagKeywords" Multiplicity="*" />
+          <End Type="SRRModel.SRRServices" Role="SRRServices" Multiplicity="*" />
+        </Association>
+        <Association Name="Service_ServiceOperations_Switch">
+          <End Type="SRRModel.SRRServiceOperations" Role="SRRServiceOperations" Multiplicity="*" />
+          <End Type="SRRModel.SRRServices" Role="SRRServices" Multiplicity="*" />
         </Association>
         <Association Name="ServiceMessageKeywordSwitch">
-          <End Role="SRREntityTagKeywords" Type="SRRModel.SRREntityTagKeywords" Multiplicity="*" />
-          <End Role="SRRServiceMessages" Type="SRRModel.SRRServiceMessages" Multiplicity="*" />
+          <End Type="SRRModel.SRREntityTagKeywords" Role="SRREntityTagKeywords" Multiplicity="*" />
+          <End Type="SRRModel.SRRServiceMessages" Role="SRRServiceMessages" Multiplicity="*" />
         </Association>
         <Association Name="ServiceOperation_Keyword_Switch">
-          <End Role="SRREntityTagKeywords" Type="SRRModel.SRREntityTagKeywords" Multiplicity="*" />
-          <End Role="ServiceOperations" Type="SRRModel.ServiceOperations" Multiplicity="*" />
+          <End Type="SRRModel.SRREntityTagKeywords" Role="SRREntityTagKeywords" Multiplicity="*" />
+          <End Type="SRRModel.SRRServiceOperations" Role="SRRServiceOperations" Multiplicity="*" />
         </Association>
-        <Association Name="ServiceOperationUsingServiceOperation">
-          <End Role="ServiceOperations" Type="SRRModel.ServiceOperations" Multiplicity="*" />
-          <End Role="ServiceOperations1" Type="SRRModel.ServiceOperations" Multiplicity="*" />
+        <Association Name="ServiceOperation_ServiceOperation_Switch">
+          <End Type="SRRModel.SRRServiceOperations" Role="SRRServiceOperations" Multiplicity="*" />
+          <End Type="SRRModel.SRRServiceOperations" Role="SRRServiceOperations1" Multiplicity="*" />
         </Association>
-        <EntityType Name="Many1">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Property1" Nullable="false" />
-          <NavigationProperty Name="Many2" Relationship="SRRModel.Many1Many2" FromRole="Many1" ToRole="Many2" />
-        </EntityType>
-        <EntityType Name="Many2">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <NavigationProperty Name="Many1" Relationship="SRRModel.Many1Many2" FromRole="Many2" ToRole="Many1" />
-        </EntityType>
-        <Association Name="Many1Many2">
-          <End Type="SRRModel.Many1" Role="Many1" Multiplicity="*" />
-          <End Type="SRRModel.Many2" Role="Many2" Multiplicity="*" />
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="SRRModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="Application_Keyword_Switch">
-            <EntityTypeMapping TypeName="SRRModel.Application_Keyword_Switch">
-              <MappingFragment StoreEntitySet="Application_Keyword_Switch">
-                <ScalarProperty Name="FK_ApplicationPK_ID" ColumnName="FK_ApplicationPK_ID" />
-                <ScalarProperty Name="FK_KeywordPK_ID" ColumnName="FK_KeywordPK_ID" />
-                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ServiceOperations">
-            <EntityTypeMapping TypeName="SRRModel.ServiceOperations">
-              <MappingFragment StoreEntitySet="ServiceOperations">
-                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Namespace" ColumnName="Namespace" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModificationReason" ColumnName="ModificationReason" />
-                <ScalarProperty Name="ModificationUser" ColumnName="ModificationUser" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SRRApplications">
             <EntityTypeMapping TypeName="SRRModel.SRRApplications">
               <MappingFragment StoreEntitySet="SRRApplications">
-                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="FK_Developer" ColumnName="FK_Developer" />
+                <ScalarProperty Name="FK_Owner" ColumnName="FK_Owner" />
                 <ScalarProperty Name="AttachedObjects" ColumnName="AttachedObjects" />
+                <ScalarProperty Name="FK_Developer" ColumnName="FK_Developer" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SRRApplicationUsingServices">
-            <EntityTypeMapping TypeName="SRRModel.SRRApplicationUsingServices">
-              <MappingFragment StoreEntitySet="SRRApplicationUsingServices">
-                <ScalarProperty Name="FK_ApplicationPK_ID" ColumnName="FK_ApplicationPK_ID" />
-                <ScalarProperty Name="FK_ServicePK_ID" ColumnName="FK_ServicePK_ID" />
-                <ScalarProperty Name="RequestTransformation" ColumnName="RequestTransformation" />
-                <ScalarProperty Name="ResponseTransformation" ColumnName="ResponseTransformation" />
+          <EntitySetMapping Name="SRRApplicationUsingServices_Switch">
+            <EntityTypeMapping TypeName="SRRModel.SRRApplicationUsingServices_Switch">
+              <MappingFragment StoreEntitySet="SRRApplicationUsingServices_Switch">
                 <ScalarProperty Name="FaultTransformation" ColumnName="FaultTransformation" />
+                <ScalarProperty Name="ResponseTransformation" ColumnName="ResponseTransformation" />
+                <ScalarProperty Name="RequestTransformation" ColumnName="RequestTransformation" />
+                <ScalarProperty Name="FK_ServicePK_ID" ColumnName="FK_ServicePK_ID" />
+                <ScalarProperty Name="FK_ApplicationPK_ID" ColumnName="FK_ApplicationPK_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SRREntityHistoryTable">
             <EntityTypeMapping TypeName="SRRModel.SRREntityHistoryTable">
               <MappingFragment StoreEntitySet="SRREntityHistoryTable">
-                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
-                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
-                <ScalarProperty Name="ModReason" ColumnName="ModReason" />
                 <ScalarProperty Name="FK_ModUser" ColumnName="FK_ModUser" />
+                <ScalarProperty Name="ModReason" ColumnName="ModReason" />
+                <ScalarProperty Name="ModDate" ColumnName="ModDate" />
+                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SRREntityTagKeywords">
             <EntityTypeMapping TypeName="SRRModel.SRREntityTagKeywords">
               <MappingFragment StoreEntitySet="SRREntityTagKeywords">
-                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SRREntityTypeSet">
-            <EntityTypeMapping TypeName="SRRModel.SRREntityTypeSet">
-              <MappingFragment StoreEntitySet="SRREntityTypeSet">
                 <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SRRServiceMessages">
             <EntityTypeMapping TypeName="SRRModel.SRRServiceMessages">
               <MappingFragment StoreEntitySet="SRRServiceMessages">
-                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Namespace" ColumnName="Namespace" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModificationReason" ColumnName="ModificationReason" />
-                <ScalarProperty Name="ModificationUser" ColumnName="ModificationUser" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Namespace" ColumnName="Namespace" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SRRServiceOperations">
+            <EntityTypeMapping TypeName="SRRModel.SRRServiceOperations">
+              <MappingFragment StoreEntitySet="SRRServiceOperations">
+                <ScalarProperty Name="FK_ResponseMessage" ColumnName="FK_ResponseMessage" />
+                <ScalarProperty Name="FK_RequestMessage" ColumnName="FK_RequestMessage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Namespace" ColumnName="Namespace" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SRRServices">
             <EntityTypeMapping TypeName="SRRModel.SRRServices">
               <MappingFragment StoreEntitySet="SRRServices">
-                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Namespace" ColumnName="Namespace" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Version" ColumnName="Version" />
-                <ScalarProperty Name="FK_Owner" ColumnName="FK_Owner" />
-                <ScalarProperty Name="EndpointDEV" ColumnName="EndpointDEV" />
-                <ScalarProperty Name="EndpointQA" ColumnName="EndpointQA" />
-                <ScalarProperty Name="EndpointPROD" ColumnName="EndpointPROD" />
                 <ScalarProperty Name="MaxResponseTime" ColumnName="MaxResponseTime" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SRRUserRolesSet">
-            <EntityTypeMapping TypeName="SRRModel.SRRUserRolesSet">
-              <MappingFragment StoreEntitySet="SRRUserRolesSet">
+                <ScalarProperty Name="EndpointPROD" ColumnName="EndpointPROD" />
+                <ScalarProperty Name="EndpointQA" ColumnName="EndpointQA" />
+                <ScalarProperty Name="EndpointDEV" ColumnName="EndpointDEV" />
+                <ScalarProperty Name="FK_Owner" ColumnName="FK_Owner" />
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Namespace" ColumnName="Namespace" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -864,43 +854,59 @@
           <EntitySetMapping Name="SRRUsers">
             <EntityTypeMapping TypeName="SRRModel.SRRUsers">
               <MappingFragment StoreEntitySet="SRRUsers">
-                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PK_ID" ColumnName="PK_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Service_Keywords_Switch" TypeName="SRRModel.Service_Keywords_Switch" StoreEntitySet="Service_Keywords_Switch">
+          <AssociationSetMapping Name="Application_Keyword_Switch" TypeName="SRRModel.Application_Keyword_Switch" StoreEntitySet="Application_Keyword_Switch">
             <EndProperty Name="SRREntityTagKeywords">
               <ScalarProperty Name="PK_ID" ColumnName="FK_KeywordPK_ID" />
             </EndProperty>
+            <EndProperty Name="SRRApplications">
+              <ScalarProperty Name="PK_ID" ColumnName="FK_ApplicationPK_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Service_Keywords_Switch" TypeName="SRRModel.Service_Keywords_Switch" StoreEntitySet="Service_Keywords_Switch">
             <EndProperty Name="SRRServices">
               <ScalarProperty Name="PK_ID" ColumnName="FK_ServicePK_ID" />
             </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="ServiceMessageKeywordSwitch" TypeName="SRRModel.ServiceMessageKeywordSwitch" StoreEntitySet="ServiceMessageKeywordSwitch">
             <EndProperty Name="SRREntityTagKeywords">
               <ScalarProperty Name="PK_ID" ColumnName="FK_KeywordPK_ID" />
             </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Service_ServiceOperations_Switch" TypeName="SRRModel.Service_ServiceOperations_Switch" StoreEntitySet="Service_ServiceOperations_Switch">
+            <EndProperty Name="SRRServices">
+              <ScalarProperty Name="PK_ID" ColumnName="FK_ServicePK_ID" />
+            </EndProperty>
+            <EndProperty Name="SRRServiceOperations">
+              <ScalarProperty Name="PK_ID" ColumnName="FK_OperationPK_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ServiceMessageKeywordSwitch" TypeName="SRRModel.ServiceMessageKeywordSwitch" StoreEntitySet="ServiceMessageKeywordSwitch">
             <EndProperty Name="SRRServiceMessages">
               <ScalarProperty Name="PK_ID" ColumnName="FK_ServiceMessagePK_ID" />
             </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="ServiceOperation_Keyword_Switch" TypeName="SRRModel.ServiceOperation_Keyword_Switch" StoreEntitySet="ServiceOperation_Keyword_Switch">
             <EndProperty Name="SRREntityTagKeywords">
               <ScalarProperty Name="PK_ID" ColumnName="FK_KeywordPK_ID" />
             </EndProperty>
-            <EndProperty Name="ServiceOperations">
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ServiceOperation_Keyword_Switch" TypeName="SRRModel.ServiceOperation_Keyword_Switch" StoreEntitySet="ServiceOperation_Keyword_Switch">
+            <EndProperty Name="SRRServiceOperations">
               <ScalarProperty Name="PK_ID" ColumnName="FK_ServiceOperationPK_ID" />
             </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="ServiceOperationUsingServiceOperation" TypeName="SRRModel.ServiceOperationUsingServiceOperation" StoreEntitySet="ServiceOperationUsingServiceOperation">
-            <EndProperty Name="ServiceOperations">
-              <ScalarProperty Name="PK_ID" ColumnName="FK_CalledServiceOperationPK_ID" />
+            <EndProperty Name="SRREntityTagKeywords">
+              <ScalarProperty Name="PK_ID" ColumnName="FK_KeywordPK_ID" />
             </EndProperty>
-            <EndProperty Name="ServiceOperations1">
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="ServiceOperation_ServiceOperation_Switch" TypeName="SRRModel.ServiceOperation_ServiceOperation_Switch" StoreEntitySet="ServiceOperation_ServiceOperation_Switch">
+            <EndProperty Name="SRRServiceOperations1">
               <ScalarProperty Name="PK_ID" ColumnName="FK_CallerServiceOperationPK_ID" />
+            </EndProperty>
+            <EndProperty Name="SRRServiceOperations">
+              <ScalarProperty Name="PK_ID" ColumnName="FK_CalledServiceOperationPK_ID" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

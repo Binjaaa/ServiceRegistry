@@ -1,0 +1,109 @@
+﻿@model SRR.DataAccessLayer.Model.SRRServices
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>SRRServices</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PK_ID)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PK_ID)
+            @Html.ValidationMessageFor(model => model.PK_ID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Namespace)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Namespace)
+            @Html.ValidationMessageFor(model => model.Namespace)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Version)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Version)
+            @Html.ValidationMessageFor(model => model.Version)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FK_Owner)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FK_Owner)
+            @Html.ValidationMessageFor(model => model.FK_Owner)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndpointDEV)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndpointDEV)
+            @Html.ValidationMessageFor(model => model.EndpointDEV)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndpointQA)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndpointQA)
+            @Html.ValidationMessageFor(model => model.EndpointQA)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EndpointPROD)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EndpointPROD)
+            @Html.ValidationMessageFor(model => model.EndpointPROD)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MaxResponseTime)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MaxResponseTime)
+            @Html.ValidationMessageFor(model => model.MaxResponseTime)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

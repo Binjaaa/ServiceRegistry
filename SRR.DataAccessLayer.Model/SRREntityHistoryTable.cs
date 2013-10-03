@@ -18,7 +18,5 @@ namespace SRR.DataAccessLayer.Model
         public string ModDate { get; set; }
         public string ModReason { get; set; }
         public int FK_ModUser { get; set; }
-    
-        public virtual SRRUsers SRRUsers { get; set; }
     }
 }

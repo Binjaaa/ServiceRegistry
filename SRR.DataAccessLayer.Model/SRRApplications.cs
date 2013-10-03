@@ -16,8 +16,8 @@ namespace SRR.DataAccessLayer.Model
     {
         public SRRApplications()
         {
-            this.Application_Keyword_Switch = new HashSet<Application_Keyword_Switch>();
-            this.SRRApplicationUsingServices = new HashSet<SRRApplicationUsingServices>();
+            this.SRRApplicationUsingServices_Switch = new HashSet<SRRApplicationUsingServices_Switch>();
+            this.Tags = new HashSet<SRREntityTagKeywords>();
         }
     
         public int PK_ID { get; set; }
@@ -26,9 +26,11 @@ namespace SRR.DataAccessLayer.Model
         public string Description { get; set; }
         public int FK_Developer { get; set; }
         public string AttachedObjects { get; set; }
+        public int FK_Owner { get; set; }
     
-        public virtual ICollection<Application_Keyword_Switch> Application_Keyword_Switch { get; set; }
-        public virtual ICollection<SRRApplicationUsingServices> SRRApplicationUsingServices { get; set; }
-        public virtual SRRUsers SRRUsers { get; set; }
+        public virtual ICollection<SRRApplicationUsingServices_Switch> SRRApplicationUsingServices_Switch { get; set; }
+        public virtual SRRUsers Developer { get; set; }
+        public virtual SRRUsers Owner { get; set; }
+        public virtual ICollection<SRREntityTagKeywords> Tags { get; set; }
     }
 }

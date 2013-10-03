@@ -204,10 +204,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\JsonNetFormatter.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -216,17 +216,27 @@
     <Compile Include="Controllers\BabyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KeywordController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Managers\SRRApplicationManager.cs" />
+    <Compile Include="Managers\SRRServiceManager.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Application\ApplicationEditViewModel.cs" />
+    <Compile Include="Models\DialogViewModel.cs" />
     <Compile Include="Models\MyModelBaby.cs" />
+    <Compile Include="Models\MyViewModel.cs" />
+    <Compile Include="Models\TimeSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Api\TimesheetsController.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Bootstrap\bootstrap-responsive.css" />
+    <Content Include="Content\Bootstrap\bootstrap-responsive.min.css" />
+    <Content Include="Content\Bootstrap\bootstrap.css" />
+    <Content Include="Content\Bootstrap\bootstrap.min.css" />
     <Content Include="Content\ModalWindowEffects\css\component.css" />
     <Content Include="Content\ModalWindowEffects\css\default.css" />
     <Content Include="Content\ModalWindowEffects\fonts\codropsicons\codropsicons.svg" />
@@ -298,6 +308,8 @@
     <Content Include="Content\ModalWindowEffects\fonts\codropsicons\codropsicons.ttf" />
     <Content Include="Content\ModalWindowEffects\fonts\codropsicons\codropsicons.woff" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -312,6 +324,9 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\Application\Create.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -354,14 +369,22 @@
     <Content Include="Views\Application\Apps.cshtml" />
     <Content Include="Views\View1.cshtml" />
     <Content Include="Views\Application\Index.cshtml" />
-    <Content Include="Views\Application\Create.cshtml" />
     <Content Include="Views\Application\Edit.cshtml" />
     <Content Include="Views\Keyword\Create.cshtml" />
     <Content Include="Views\Baby\Index.cshtml" />
     <Content Include="Views\Baby\Create.cshtml" />
+    <Content Include="Views\Shared\_CreateKeywordPartial.cshtml" />
+    <Content Include="Views\Shared\_TimeSheetPartial.cshtml" />
+    <Content Include="Views\Home\Modal.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\" />
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Application\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -378,6 +401,14 @@
     <ProjectReference Include="..\SRR.DataAccessLayer\SRR.DataAccessLayer.csproj">
       <Project>{4fd6e0f1-75bc-4eb5-bbfc-04eff542e557}</Project>
       <Name>SRR.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SRR.Infrastructure\SRR.Infrastructure.csproj">
+      <Project>{61793a0c-da9e-4b7a-9523-714bce4cb539}</Project>
+      <Name>SRR.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SRR.UI.MVC4.ViewModels\SRR.Web.ViewModels.csproj">
+      <Project>{03b629e4-8685-4b7e-b8df-729e827b125f}</Project>
+      <Name>SRR.Web.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,4 +1,4 @@
-﻿@model SRR.UI.MVC4.Models.Application.ApplicationEditViewModel
+﻿@model SRR.Web.ViewModels.Application.ApplicationEditViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -15,13 +15,13 @@
     <fieldset>
         <legend>SRRApplications</legend>
 
-        <div class="editor-label">
+      @*  <div class="editor-label">
             @Html.LabelFor(model => model.Application.PK_ID)
-        </div>
-        <div class="editor-field">
+        </div>*@
+       @* <div class="editor-field">
             @Html.EditorFor(model => model.Application.PK_ID)
             @Html.ValidationMessageFor(model => model.Application.PK_ID)
-        </div>
+        </div>*@
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Application.Name)
@@ -38,7 +38,6 @@
             @Html.EditorFor(model => model.Application.Version)
             @Html.ValidationMessageFor(model => model.Application.Version)
         </div>
-        4
         <div class="editor-label">
             @Html.LabelFor(model => model.Application.Description)
         </div>
@@ -48,21 +47,35 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Application.FK_Developer)
+            @*@Html.LabelFor(model => model.Application.FK_Developer)*@
+            Developer
         </div>
         <div class="editor-field">
             @Html.DropDownListFor(model => model.Application.FK_Developer, Model.Users)
             @Html.ValidationMessageFor(model => model.Application.FK_Developer)
         </div>
 
+        
         <div class="editor-label">
+            @*@Html.LabelFor(model => model.Application.FK_Owner)*@
+            Owner
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.Application.FK_Owner, Model.Users)
+            @Html.ValidationMessageFor(model => model.Application.FK_Owner)
+        </div>
+
+    @*    <div class="editor-label">
             @Html.LabelFor(model => model.Application.AttachedObjects)
         </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Application.AttachedObjects)
             @Html.ValidationMessageFor(model => model.Application.AttachedObjects)
-        </div>
+        </div>*@
 
+        <div class="editor-label">
+            Tags
+        </div>
         <div class="editor-field">
               @Html.ListBoxFor(model => model.SelectedTags, Model.Tags,
                    new { @class = "chzn-select", data_placeholder = "Choose Tags...", style = "width:350px;" })
